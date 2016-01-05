@@ -16,11 +16,10 @@ void FoxAlgorithm(NGrid::TGridInfo& grid, NData::TData& data) {
             data.LocalA.BroadcastMatrix(curStageRoot, grid.RowComm);
             data.LocalC.MultiplyHere(data.LocalA, data.LocalB);
         } else {
-            tempMatrix.BroadcastMatrix(curStageRoot, grid.ColComm);
+            tempMatrix.BroadcastMatrix(curStageRoot, grid.RowComm);
             data.LocalC.MultiplyHere(tempMatrix, data.LocalB);
         }
         data.LocalB.SendrecvReplaceMatrix(sourceNeighbour, destNeighbour, grid.ColComm);
     }
-
 }
 } // namespace NFox

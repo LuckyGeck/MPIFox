@@ -102,7 +102,6 @@ void DistPrintMatrix(const char* text, NData::TData& data, NMatrix::TSquareMatri
 
 } // anonymous namespace
 
-
 int main(int argc, char** argv) {
     MPI_Init(&argc, &argv);
 
